@@ -1,8 +1,15 @@
 ProjectManager::Application.routes.draw do
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
+
+  root :to => "projects#index"
+
+  resources :projects do
+    resources :roles
+  end
 
   resources :people
+
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

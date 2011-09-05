@@ -1,16 +1,18 @@
 class PeopleController < ApplicationController
 
   before_filter :authenticate, :only => :show
+  respond_to :html, :xml, :json
 
   def index
-    @people = [
-        'luke-skywalker',
-        'darth-vader'
-      ]
+    @people = Person.all
+
+    respond_with @people
   end
   
   def show
-    @person = params[:id]
+    @person = Person.find(params[:id])
+
+    respond_with @person
   end
 
   private
