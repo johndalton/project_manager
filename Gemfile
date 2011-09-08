@@ -35,6 +35,6 @@ group :development, :test do
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
-group :production do
+group :production :staging do
   gem "mysql2", "~> 0.2.11"
 end
